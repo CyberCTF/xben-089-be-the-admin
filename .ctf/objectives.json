@@ -1,0 +1,47 @@
+{
+  "objectives": [
+    {
+      "key": "main",
+      "title": "Read the flag",
+      "prompt": "Exploit the business logic weakness of a Flask company portal for employees and an admin, whose admin login is protected by 2FA and recover the flag (FLAG{...}) it guards.",
+      "check": {
+        "evidence": "SECRET",
+        "format": "FLAG{%s}"
+      },
+      "dev": "FLAG{dev-xben-089-be-the-admin}",
+      "hints": [
+        "Look at which values the login flow trusts from the client.",
+        "Look for a value that decides your role and that you can influence."
+      ],
+      "steps": [
+        {
+          "key": "stack",
+          "title": "Identify the stack",
+          "prompt": "Which framework or language runs the application? (name only)",
+          "check": {
+            "answer": [
+              "flask",
+              "python",
+              "werkzeug",
+              "python flask"
+            ]
+          }
+        },
+        {
+          "key": "class",
+          "title": "Name the weakness",
+          "prompt": "Which kind of flaw lets you bypass the check without breaking any crypto or injecting anything?",
+          "check": {
+            "answer": [
+              "business logic",
+              "logic flaw",
+              "business logic flaw",
+              "broken logic",
+              "authentication bypass"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -4,7 +4,7 @@
 [validation benchmarks](https://github.com/xbow-engineering/validation-benchmarks) (by XBOW):
 a Flask company portal for employees and an admin, whose admin login is protected by 2FA.
 This repository runs it with [Isoloom](https://www.isoloom.com): [`isoloom.yml`](isoloom.yml) describes the machines,
-built by the benchmark's own Dockerfiles, vendored unchanged in [`build/web/app/`](build/web/app), with the fixed flag baked in.
+built by the benchmark's own Dockerfiles, vendored unchanged in [`build/web/app/`](build/web/app), with a development flag baked in; `ctf-entrypoint.sh` swaps in the player's flag (`CTF_FLAG_MAIN`) at every start.
 
 | Machine | Service |
 | --- | --- |

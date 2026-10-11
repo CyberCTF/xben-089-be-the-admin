@@ -26,3 +26,10 @@ ARG FLAG=FLAG{e436458faa37a2dafda1d3c521b7916996e984e7dcb71b058b1e8d9c8c5fc0c5}
 ENV FLAG=${FLAG} 
 
 CMD ["python", "app.py"]
+
+# CyberCTF per-player flag: the flag above is only the development fallback. ctf-entrypoint.sh
+# puts the player's flag (CTF_FLAG_MAIN) in its place at every start, then runs the original
+# entrypoint and command, repeated here unchanged.
+COPY ctf-entrypoint.sh /usr/local/bin/ctf-entrypoint.sh
+ENTRYPOINT ["/usr/local/bin/ctf-entrypoint.sh"]
+CMD ["python", "app.py"]
